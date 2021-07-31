@@ -1,1 +1,42 @@
 
+#include<iostream>
+using namespace std;
+int main()
+{
+    int n,size,key,i,flag=0;
+    //cin>>n;
+    //cout<<"no.of test cases"<<n<<endl;
+    cin>>size;
+    int arr[size];
+    for(i=0;i<size;i++)
+    {
+    cin>>arr[i];
+    }
+    cin>>key;
+    for(i=0;i<size;i++)
+    {
+        if(arr[i]==key)
+        {
+            flag=1;
+            break;
+        }
+    }
+       if(flag==1)
+        cout<<"Present: "<<i<<endl;
+       else
+        cout<<"not present"<<endl;
+
+       return 0;
+}
+
+
+OUTPUT:
+
+
+5
+12 23 36 39 41
+39
+Present: 3
+
+Process returned 0 (0x0)   execution time : 34.755 s
+Press any key to continue.
