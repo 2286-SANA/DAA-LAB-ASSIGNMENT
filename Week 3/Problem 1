@@ -1,40 +1,58 @@
 /*Insertion Sort*/
 
-#include <stdio.h>           
-   int main()
-   {
-     int t;
-    scanf("%d",&t);
-    while(t>0)
-     {
-      int i, j, n, temp,comp=0,shift=0;
-      scanf("%d",&n);
-      int array[n];
-      for (i = 0; i < n; i++)
-      {
-          scanf("%d",&array[i]);
-      }
-      for (i = 1; i < n; i++) {
-      j = i;
-      shift++;
-      while ((j > 0) && (array[j - 1] > array[j])) {
-            if(array[j-1]>array[j]){
-            comp++;
-            shift++;
+#include<iostream>
+#include<fstream>
+using namespace std;
+int main(){
+    ifstream in;
+    ofstream out;
+    in.open("input.txt");
+    out.open("output.txt");
+    int t,n;
+    int arr[100];
+    in >> t;
+    while(t){
+        in >> n;
+        for(int i=0;i<n;i++)
+            in >> arr[i];
+        int shifts=0,comparison=0;
+        int key=0,j;
+        for(int i=1;i<n;i++){
+            key=arr[i];
+            j=i-1;
+            while(j>=0 && arr[j]>key){
+                arr[j+1]=arr[j];
+                j--;
+                shifts++;
+                comparison++;
+            }
+            arr[j+1]=key;
+            comparison++;
         }
-        temp = array[j - 1];
-        array[j - 1] = array[j];
-        array[j] = temp;
-        j--;
-        
+        for(int i=0;i<n;i++)
+            out << arr[i] << " ";
+            out << endl;
+        out << "Shifts = " << shifts << endl;
+        out << "Comparisons = " << comparison << endl;
+        t--;
     }
 }
-for (i = 0; i < n; i++)
-    printf("%d ", array[i]);
-    printf(" \ncomparisons  = %d",comp);
-    printf(" \nshifts  = %d",shift);
-     
-      t--;
-}
-      return 0;
- } 
+
+INPUT--
+3
+8 -23 65 -31 76 46 89 45 32
+10
+54 65 34 76 78 97 46 32 51 21
+15
+63 42 223 645 652 31 324 22 553 -12 54 65 86 46 325
+
+OUTPUT-
+-31 -23 32 45 46 65 76 89 
+Shifts = 13
+Comparisons = 20
+21 32 34 46 51 54 65 76 78 97 
+Shifts = 28
+Comparisons = 37
+-12 22 31 42 46 54 63 65 86 223 324 325 553 645 652 
+Shifts = 54
+Comparisons = 68
