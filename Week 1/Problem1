@@ -30,9 +30,7 @@ int main()
 }
 
 
-OUTPUT:
-
-
+OUTPUT:-
 5
 12 23 36 39 41
 39
