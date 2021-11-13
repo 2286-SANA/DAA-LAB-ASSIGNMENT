@@ -4,8 +4,6 @@ using namespace std;
 int main()
 {
     int i,n,left,right,size,mid,key;
-   // cin>>n;
-  //  cout<<"no.of test cases"<<n<<endl;
     cin>>size;
     int arr[size];
     for(i=0;i<size;i++)
